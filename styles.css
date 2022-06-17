@@ -1,0 +1,238 @@
+:root {
+  /* primary colors */
+  --red:hsl(0, 100%, 74%);
+  --green: rgb(56, 204, 140);
+  /* accent */
+  --blue: hsl(248, 32%, 49%);
+  /* neutral */
+  --dark-blue: hsl(249, 10%, 26%);
+  --grayish: hsl(246, 25%, 77%);
+  /* font */
+  --ff: 'Poppins', sans-serif;
+  --font-medium: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--red);
+  background-image: url(./images/bg-intro-mobile.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-family: var(--ff);
+  font-size:var(--font-medium);
+  height: 100vh;
+  line-height: 1.5;
+}
+
+/* mobile */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 1.2rem;
+  padding: .6rem;
+}
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.4rem;
+}
+.title {
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+.description {
+  text-align: center;
+}
+
+.banner {
+  box-shadow: -1px 5px 5px 0px rgba(0, 0, 0, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue);
+  border-radius: .6rem;
+  padding: 1.2rem 3.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.subscription {
+  text-align: center;
+}
+
+/* form */
+form {
+  box-shadow: -1px 5px 10px 0px rgba(0, 0, 0, 0.39);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: .6rem; 
+  padding: 1rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  width: 100%;
+}
+
+.input-container:first-child {
+  margin-top: 2rem;
+}
+
+::placeholder {
+  color: var(--dark-blue);
+  font-weight: 600;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 1rem 1rem;
+  border: 1px solid var(--grayish);
+  border-radius: .2rem;
+  position: relative;
+}
+
+.input-container small {
+  color: var(--red);
+  visibility: hidden;
+}
+
+.input-container .icon {
+  position: absolute;
+  visibility: hidden;
+  right: 15%;
+  margin-top: .6rem;
+}
+
+/* Error Message */
+.input-container.error small {
+  visibility: visible;
+}
+
+.input-container.error .icon {
+  visibility: visible;
+}
+
+.input-container.error input {
+  border: 1px solid var(--red);
+}
+
+.submit {
+  background-color: var(--green);
+  border: 0;
+  border-radius: .2rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 1rem 4rem;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  transition: background-color 1s;
+}
+
+.submit:hover {
+  background-color: rgba(56, 204, 140, 0.699);
+}
+
+.form-text {
+  text-align: center;
+  font-size: smaller;
+  color: var(--grayish);
+  margin-bottom: 1.2rem;
+}
+
+.terms {
+  color: var(--red);
+}
+
+/* footer */
+.attribution { 
+  font-size: 11px; 
+  text-align: center; 
+}
+.attribution a { 
+  color: #fff; 
+  text-decoration: none;
+}
+
+/* Desktop */
+
+@media (min-width: 50em) {
+
+  body {
+    background-image: url(./images/bg-intro-desktop.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .content-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "header-content banner"
+                          "header-content form-section";
+  }
+
+  .header-content {
+    grid-area: header-content;
+    margin: 0 auto;
+    width: 74%;
+  }
+
+  .title {
+    font-size: 2.6rem;
+    line-height: 1.15;
+    max-width: 24ch;
+    text-align: left;
+    width: 100%;
+  }
+
+  .description {
+    text-align: left;
+  }
+
+  .banner {
+    grid-area: banner;
+    max-width: 28rem;
+    justify-self: center;
+  }
+
+  .form-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: form-section;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  form {
+    max-width: 28rem;
+  }
+
+  .form-text {
+    font-size: 0.7rem;
+  }
+
+  .input-container {
+    align-items: end;
+  }
+  
+  .input-container.error .icon {
+    position: absolute;
+    right: 13%;
+    margin-top: 0.8rem;
+  }
+  
+  .submit {
+    padding: 1rem 7rem;
+  }
+}
